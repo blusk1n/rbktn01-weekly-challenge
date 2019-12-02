@@ -43,27 +43,27 @@ function daBears() {
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["papaBear", "mamaBear", "babyBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = ["mamaBear", "babyBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = ["daBears", "papaBear", "mamaBear"];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 
 // *************
@@ -82,7 +82,14 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
-
+var Vehicle = function(){
+	this.gasRemaining = 100;
+}
+Vehicle.prototype.drive = function(){
+	this.gasRemaining -= 25
+}
+var charger = new Vehicle()
+var mustang = new Vehicle()
 
 
 
@@ -105,6 +112,24 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // and should neither modify them nor break when encountering them.
 
 
+this.String.prototype.grammarPolice = function(str){
+	var letters = "azertyuiopqsdfghjklmwxcvbn";
+	var arr = str.split(" ")
+	var result = "";
+	for(var j = 0 ; j < arr.length ; j++){
+		var newStr = ""
+			if(letters.indexOf(arr[j][0])!== -1){
+				gg += arr[j][0].toUpperCase()
+			}
+		for(var i = 1 ; i < arr[j].length ; i++){
+			if(letters.indexOf(arr[j][i]) !== -1){
+				gg += arr[j][i].toLowerCase()
+			}
+		}
+		result += newStr +" "
+	}
+	return result 
+}
 
 
 // CODE HERE...
@@ -126,6 +151,17 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // In all other cases, return "Different values"
 
 // CODE HERE...
+function valueType(var1 , var2){
+	if(var1 === var2){
+		return "Exactly the same"
+	}
+	else if(String(var1) === String(var2)){
+		return "Same value, different types"
+	}
+	else{
+		return "Different values"
+	}
+}
 
 // *************
 // * PROBLEM 5 *
@@ -151,6 +187,7 @@ function large() {
 
     return 'My name is ' + this.name + ' and I am very heavy!'
 }
+elephant.boundToElephant = large.bind(elephant)
   // CODE HERE...
 
 // *************
@@ -162,7 +199,9 @@ function large() {
 // capacity (Function) and crew (object).
 // Use explicit binding to give capacity the context of crew
 // and return the bound function.
-
+var deathStar = function(capacity,crew){
+	return  capacity.bind(crew)
+}
 // CODE HERE...
 
 
@@ -176,5 +215,16 @@ function large() {
 // then return a closure function:
 // The closure function will take in a parameter: liabilities (Number)
 // The closure function will return the combined value of assets and liabilities.
+var accountingOffice = function(number){
+	if(number === undefined){
+		number = 0 ;
+	}
+	return closure = function(liabilities){
+		if(liabilities === undefined){
+		liabilities = 0 ;
+	}
+		return number + liabilities
+	}
 
+}
 // CODE HERE...
