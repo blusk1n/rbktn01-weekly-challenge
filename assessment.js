@@ -6,35 +6,34 @@
 
 // Given the following nested functions:
 // !!!!!!!!! Don not use the console.log()!!!!!!!!!!!!!!
-
 function daBears() {
-    var isFurry = true;
+  var isFurry = true;
 
-    function papaBear() {
-        var porridge = "Too Hot!";
-        var chair = "Too Big!";
-        var bed = "Too Hard!";
-        var feeling = "Angry";
+  function papaBear() {
+    var porridge = "Too Hot!";
+    var chair = "Too Big!";
+    var bed = "Too Hard!";
+    var feeling = "Angry";
 
-        function mamaBear() {
-            var porridge = "Too Cold!";
-            var bed = "Too Soft!";
+    function mamaBear() {
+      var porridge = "Too Cold!";
+      var bed = "Too Soft!";
 
-            function babyBear() {
-                var porridge = "Just right!";
-                var chair = "Just right!";
-                var bed = "Just right!";
-                var feeling = "Whiny";
-                var sleepy = "Very yes";
-            }
-        }
+      function babyBear() {
+        var porridge = "Just right!";
+        var chair = "Just right!";
+        var bed = "Just right!";
+        var feeling = "Whiny";
+        var sleepy = "Very yes";
+      }
     }
+  }
 
-    function goldilocks() {
-        var feeling = "Hungry";
-        var isFurry = false;
-        var isDinner = true;
-    }
+  function goldilocks() {
+    var feeling = "Hungry";
+    var isFurry = false;
+    var isDinner = true;
+  }
 }
 
 // Remove entries from the following arrays until only correct answers remain.
@@ -82,11 +81,11 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
-var Vehicle = function(){
-	this.gasRemaining = 100;
+var Vehicle = function() {
+  this.gasRemaining = 100;
 }
-Vehicle.prototype.drive = function(){
-	this.gasRemaining -= 25
+Vehicle.prototype.drive = function() {
+  this.gasRemaining -= 25
 }
 var charger = new Vehicle()
 var mustang = new Vehicle()
@@ -111,24 +110,16 @@ var mustang = new Vehicle()
 // Your method may be passed punctuation, numbers or other non-letter characters
 // and should neither modify them nor break when encountering them.
 
-
-this.String.prototype.grammarPolice = function(str){
-	var letters = "azertyuiopqsdfghjklmwxcvbn";
-	var arr = str.split(" ")
-	var result = "";
-	for(var j = 0 ; j < arr.length ; j++){
-		var newStr = ""
-			if(letters.indexOf(arr[j][0])!== -1){
-				gg += arr[j][0].toUpperCase()
-			}
-		for(var i = 1 ; i < arr[j].length ; i++){
-			if(letters.indexOf(arr[j][i]) !== -1){
-				gg += arr[j][i].toLowerCase()
-			}
-		}
-		result += newStr +" "
-	}
-	return result 
+//
+String.prototype.grammerPolice = function(str) {
+  var arr = this.toLowerCase().split(" ");
+  var result = [];
+  arr.forEach(function(elm, i) {
+    if (elm.length > 1) {
+      result.push(elm.charAt(0).toUpperCase() + elm.slice(1))
+    }
+  })
+  return result.join(" ")
 }
 
 
@@ -151,16 +142,14 @@ this.String.prototype.grammarPolice = function(str){
 // In all other cases, return "Different values"
 
 // CODE HERE...
-function valueType(var1 , var2){
-	if(var1 === var2){
-		return "Exactly the same"
-	}
-	else if(String(var1) === String(var2)){
-		return "Same value, different types"
-	}
-	else{
-		return "Different values"
-	}
+function valueType(var1, var2) {
+  if (var1 === var2) {
+    return "Exactly the same"
+  } else if (var1 == var2) {
+    return "Same value, different types"
+  } else {
+    return "Different values"
+  }
 }
 
 // *************
@@ -181,14 +170,14 @@ function valueType(var1 , var2){
 // 'My name is Horton and I am very heavy!' (The above instructions should make this work.  No code needed for this paragraph)
 
 var elephant = {
-    name: 'Horton'
+  name: 'Horton'
 }
-function large() {
 
-    return 'My name is ' + this.name + ' and I am very heavy!'
+function large() {
+  return 'My name is ' + this.name + ' and I am very heavy!'
 }
 elephant.boundToElephant = large.bind(elephant)
-  // CODE HERE...
+// CODE HERE...
 
 // *************
 // * PROBLEM 6 *
@@ -199,8 +188,8 @@ elephant.boundToElephant = large.bind(elephant)
 // capacity (Function) and crew (object).
 // Use explicit binding to give capacity the context of crew
 // and return the bound function.
-var deathStar = function(capacity,crew){
-	return  capacity.bind(crew)
+var deathStar = function(capacity, crew) {
+  return capacity.bind(crew)
 }
 // CODE HERE...
 
@@ -215,16 +204,16 @@ var deathStar = function(capacity,crew){
 // then return a closure function:
 // The closure function will take in a parameter: liabilities (Number)
 // The closure function will return the combined value of assets and liabilities.
-var accountingOffice = function(number){
-	if(number === undefined){
-		number = 0 ;
-	}
-	return closure = function(liabilities){
-		if(liabilities === undefined){
-		liabilities = 0 ;
-	}
-		return number + liabilities
-	}
+var accountingOffice = function(number) {
+  if (number === undefined) {
+    number = 0;
+  }
+  return closure = function(liabilities) {
+    if (liabilities === undefined) {
+      liabilities = 0;
+    }
+    return number + liabilities
+  }
 
 }
 // CODE HERE...
